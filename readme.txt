@@ -1,10 +1,10 @@
 === HTML Tag and Class Replace ===
 Contributors: jahidcse
-Donate link: https://viserx.com/
+Donate link: https://themefic.com/
 Tags: html code, css class, footer code, html class, h1 replace, a tag replace, insert code, div replace, id replace, tag replace, seo, wp developers
 Requires at least: 4.7
-Tested up to: 5.8.1
-Stable tag: 1.0
+Tested up to: 6.0.1
+Stable tag: 1.0.0
 Requires PHP: 5.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -22,19 +22,18 @@ A few notes about the sections above:
 * Replace html Class in your blog
 
 = INJECTION LOCATIONS =
+
 1. Head Section
 2. Body Section
 3. Footer Section
 
-= Credits =
-
-Thanks to my <a href="https://www.viserx.com/" rel="friend">VISER X</a> WordPress Team for support and inspired me.
 
 == Installation ==
 
 1. Install HTML Tag and Class Replace by uploading the `html-tag-and-class-replace` directory to the `/wp-content/plugins/` directory.
 2. Activate HTML Tag and Class Replace through the `Plugins` menu in WordPress.
-3. Insert your code by going to the `Settings > Tag and Class Replace` menu.
+3. The page will redirect you to the settings Page.
+4. You can change this option any time you want by going to the `Settings > Tag and Class Replace` menu.
 
 
 == Notes ==
@@ -54,9 +53,9 @@ Yes.
 
 == Screenshots ==
 
-1. Settings Screen
+1. Settings
 
 == Changelog ==
 
-= 1.0 =
+= 1.0.0 =
 * Initial version

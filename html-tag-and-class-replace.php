@@ -1,11 +1,11 @@
 <?php
 /**
  * Plugin Name:       HTML Tag and Class Replace
- * Plugin URI:        https://viserx.com/
- * Description:        Allows you to Replace any HTML Tag and Class of your WordPress WebSite.
- * Version:           1.0
+ * Plugin URI:        https://themefic.com/
+ * Description:       Allows you to Replace any HTML Tag and Class of your WordPress WebSite.
+ * Version:           1.0.0
  * Requires at least: 4.7
- * Tested up to: 5.8.1
+ * Tested up to: 6.0.1
  * Requires PHP:      5.3
  * Author:            jahidcse
  * Author URI:        https://profiles.wordpress.org/jahidcse/
@@ -37,6 +37,8 @@ $this->plugin->url                      = plugin_dir_url( __FILE__ );
 add_action('admin_menu', array($this,'html_tag_replace_admin_add_page'));
 add_action('admin_enqueue_scripts', array($this,'html_tag_and_class_replace_scripts'));
 add_action('wp_enqueue_scripts', array($this,'html_tag_replace_front_custom_scripts'), 100);
+add_action( 'activated_plugin', array($this,'html_tag_replace_activated'));
+add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), array($this,'html_tag_replace_page_settings'));
 
 
 }
@@ -82,6 +84,28 @@ if(isset($_REQUEST['but_submit'])){
 
 }
 
+/**
+* Activated Plugin Setting
+*/
+
+function html_tag_replace_activated( $plugin ) {
+  if ( plugin_basename( __FILE__ ) == $plugin ) {
+    wp_redirect( admin_url( 'options-general.php?page='.$this->plugin->name ) );
+    die();
+  }
+}
+
+
+/**
+* Plugin Setting Page Linked
+*/
+
+function html_tag_replace_page_settings( $links ) {
+  $link = sprintf( "<a href='%s' style='color:#2271b1;'>%s</a>", admin_url( 'options-general.php?page='.$this->plugin->name ), __( 'Settings', 'html-tag-and-class-replace' ) );
+  array_push( $links, $link );
+
+  return $links;
+}
 
 /**
 * Admin Include CSS
