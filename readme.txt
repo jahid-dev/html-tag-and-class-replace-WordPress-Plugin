@@ -3,8 +3,8 @@ Contributors: jahidcse
 Donate link: https://themefic.com/
 Tags: html code, css class, footer code, html class, h1 replace, a tag replace, insert code, div replace, id replace, tag replace, seo, wp developers
 Requires at least: 4.7
-Tested up to: 6.0.1
-Stable tag: 1.0.0
+Tested up to: 6.2
+Stable tag: 1.0.2
 Requires PHP: 5.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -26,6 +26,16 @@ A few notes about the sections above:
 1. Head Section
 2. Body Section
 3. Footer Section
+
+
+
+<strong>Privacy Policy : </strong>
+
+HTML Tag and Class Replace uses [Appsero](https://appsero.com) SDK to collect some telemetry data upon user's confirmation. This helps us to troubleshoot problems faster & make product improvements.
+
+Appsero SDK does not gather any data by default. The SDK only starts gathering basic telemetry data when a user allows it via the admin notice. We collect the data to ensure a great user experience for all our users. 
+
+Integrating Appsero SDK DOES NOT IMMEDIATELY start gathering data, without confirmation from users in any case.
 
 
 == Installation ==
@@ -56,6 +66,14 @@ Yes.
 1. Settings
 
 == Changelog ==
+
+= 1.1.2 =
+
+* Added: Compatibility with WordPress 6.2
+* Update: Appsero Update
+
+= 1.0.1 =
+* Updated: Compatitibility Check with WordPress 6.1
 
 = 1.0.0 =
 * Initial version

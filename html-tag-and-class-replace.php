@@ -3,9 +3,9 @@
  * Plugin Name:       HTML Tag and Class Replace
  * Plugin URI:        https://themefic.com/
  * Description:       Allows you to Replace any HTML Tag and Class of your WordPress WebSite.
- * Version:           1.0.0
+ * Version:           1.0.2
  * Requires at least: 4.7
- * Tested up to: 6.0.1
+ * Tested up to: 6.2
  * Requires PHP:      5.3
  * Author:            jahidcse
  * Author URI:        https://profiles.wordpress.org/jahidcse/
@@ -40,6 +40,7 @@ add_action('wp_enqueue_scripts', array($this,'html_tag_replace_front_custom_scri
 add_action( 'activated_plugin', array($this,'html_tag_replace_activated'));
 add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), array($this,'html_tag_replace_page_settings'));
 
+$this->appsero_init_tracker_html_tag_and_class_replace();
 
 }
 
@@ -138,6 +139,24 @@ wp_localize_script( 'my_replace_js', 'htc_data', $jh_data_pass );
 
 }
 
+
+/**
+ * Initialize the plugin tracker
+ *
+ * @return void
+ */
+function appsero_init_tracker_html_tag_and_class_replace() {
+
+    if ( ! class_exists( 'Appsero\Client' ) ) {
+      require_once __DIR__ . '/inc/app/src/Client.php';
+    }
+
+    $client = new Appsero\Client( '48566830-079d-44e7-87ae-212216263283', 'HTML Tag and Class Replace', __FILE__ );
+
+    // Active insights
+    $client->insights()->init();
+
+}
 
 
 }
