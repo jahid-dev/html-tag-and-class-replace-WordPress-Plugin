@@ -3,9 +3,9 @@
  * Plugin Name:       HTML Tag and Class Replace
  * Plugin URI:        https://themefic.com/
  * Description:       Allows you to Replace any HTML Tag and Class of your WordPress WebSite.
- * Version:           1.0.1
+ * Version:           1.0.2
  * Requires at least: 4.7
- * Tested up to: 6.1.1
+ * Tested up to: 6.2
  * Requires PHP:      5.3
  * Author:            jahidcse
  * Author URI:        https://profiles.wordpress.org/jahidcse/
