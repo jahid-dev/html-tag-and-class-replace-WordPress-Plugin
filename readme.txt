@@ -3,8 +3,8 @@ Contributors: jahidcse
 Donate link: https://themefic.com/
 Tags: html code, css class, footer code, html class, h1 replace, a tag replace, insert code, div replace, id replace, tag replace, seo, wp developers
 Requires at least: 4.7
-Tested up to: 6.2
-Stable tag: 1.0.2
+Tested up to: 6.3
+Stable tag: 1.0.3
 Requires PHP: 5.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -67,7 +67,11 @@ Yes.
 
 == Changelog ==
 
-= 1.1.2 =
+= 1.0.3 =
+
+* Added: Compatibility with WordPress 6.3
+
+= 1.0.2 =
 
 * Added: Compatibility with WordPress 6.2
 * Update: Appsero Update
