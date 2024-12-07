@@ -16,39 +16,89 @@
   ?>
    <?php
       $hfcm_form_action = admin_url('options-general.php?page=html-tag-and-class-replace');
-      
-      ?>
-   <div class="html_tag_replace_notes">
-      <h3><?php esc_html_e("Note: Replace Tag","html-tag-and-class-replace"); ?></h3>
-      <ul>
-         <li><?php esc_html_e("Old Tag","html-tag-and-class-replace"); ?> <code><?php esc_html_e("h1.....h6, p, a, span, .class-name h1.....h6, .class-name p, .class-name a","html-tag-and-class-replace"); ?></code> <b><?php esc_html_e("You can add multiple tag using comma ( , )","html-tag-and-class-replace"); ?></b></li>
-         <li><?php esc_html_e("New Tag just type","html-tag-and-class-replace"); ?> <code><?php esc_html_e(" h1.......h6, p, span","html-tag-and-class-replace"); ?></code> <b><?php esc_html_e("You can only add one tag", "html-tag-and-class-replace"); ?></b></li>
-      </ul>
-   </div>
+   ?>
    <div class="replace-tag-box">
       <form method='post' action='<?php echo esc_html($hfcm_form_action); ?>'>
-         <p>
-            <label for="html-old-tag"><?php esc_html_e("Old Tag","html-tag-and-class-replace"); ?> <small><?php esc_html_e("(Tag Name)", "html-tag-and-class-replace"); ?></small></label>
-            <input type="text" name="html_old_tag" id="html-old-tag" placeholder="Example: .class-name a, p, h1..... h6, span" value="<?php if(!empty($this->html_tag_replace_info['html_old_tag'])){ echo esc_html($this->html_tag_replace_info['html_old_tag']); } ?>" <?php echo ( ! current_user_can( 'unfiltered_html' ) ) ? ' disabled="disabled" ' : ''; ?> />
-         </p>
-         <p>
-            <label for="html-new-tag"><?php esc_html_e("New Tag","html-tag-and-class-replace"); ?> <small><?php esc_html_e("(Tag Name)", "html-tag-and-class-replace"); ?></small></label>
-            <input type="text" name="html_new_tag" id="html-new-tag" placeholder="Example: h1.....h6, p, span"  value="<?php if(!empty($this->html_tag_replace_info['html_new_tag'])){ echo esc_html($this->html_tag_replace_info['html_new_tag']); } ?>" <?php echo ( ! current_user_can( 'unfiltered_html' ) ) ? ' disabled="disabled" ' : ''; ?> />
-         </p>
-         <p>
-            <label for="html-old-class"><?php esc_html_e("Old Class Name","html-tag-and-class-replace"); ?> <small><?php esc_html_e("(Class Name)", "html-tag-and-class-replace"); ?></small></label>
-            <input type="text" name="html_old_class" id="html-old-class" placeholder="class-name" value="<?php if(!empty($this->html_tag_replace_info['html_old_class'])){ echo esc_html($this->html_tag_replace_info['html_old_class']); } ?>" <?php echo ( ! current_user_can( 'unfiltered_html' ) ) ? ' disabled="disabled" ' : ''; ?> />
-         </p>
-         <p>
-            <label for="html-new-class"><?php esc_html_e("New Class Name","html-tag-and-class-replace"); ?> <small><?php esc_html_e("(Class Name)", "html-tag-and-class-replace"); ?></small></label>
-            <input type="text" name="html_new_class" id="html-new-class" placeholder="class-name"  value="<?php if(!empty($this->html_tag_replace_info['html_new_class'])){ echo esc_html($this->html_tag_replace_info['html_new_class']); } ?>" <?php echo ( ! current_user_can( 'unfiltered_html' ) ) ? ' disabled="disabled" ' : ''; ?> />
-         </p>
-          <?php if ( current_user_can( 'unfiltered_html' ) ) { ?>
+         
+         <!-- Tag Replace Start -->
+         <h3><?php esc_html_e("Replace Tag", "html-tag-and-class-replace"); ?></h3>
+         <div class="repeater-box">
+            <div id="tag-repeater-container" class="repeater-container">
+               <?php
+               $tag_repeater_data = $this->html_tag_replace_info['html_tag_replace'] ?? [];
+               if (empty($tag_repeater_data)) {
+                     $tag_repeater_data[] = ['html_old_tag' => '', 'html_new_tag' => ''];
+               } else {
+                     $tag_repeater_data = $tag_repeater_data["repeater_data"];
+               }
+               foreach ($tag_repeater_data as $index => $row) {
+               ?>
+                     <div class="repeater-row">
+                        <div class="repeater-field">
+                           <p>
+                                 <label><?php esc_html_e("Old Tag", "html-tag-and-class-replace"); ?></label>
+                                 <input type="text" name="tag_repeater_data[<?php echo $index; ?>][html_old_tag]" placeholder="Ex: .class-name a/h6/span" value="<?php echo esc_attr($row['html_old_tag']); ?>">
+                           </p>
+                           <p>
+                                 <label><?php esc_html_e("New Tag", "html-tag-and-class-replace"); ?></label>
+                                 <input type="text" name="tag_repeater_data[<?php echo $index; ?>][html_new_tag]" placeholder="Ex: h5" value="<?php echo esc_attr($row['html_new_tag']); ?>">
+                           </p>
+                        </div>
+                        <div class="repeater-controller">
+                           <span class="remove-row"><p>×</p></span>
+                        </div>
+                     </div>
+               <?php } ?>
+            </div>
+            <div class="add-new-row">
+               <button type="button" class="button button-primary" id="add-tag-row"><?php esc_html_e("Add Row", "html-tag-and-class-replace"); ?></button>
+            </div>
+         </div>
+         <!-- Tag Replace End -->
+
+         <!-- Class Replace Start -->
+         <h3><?php esc_html_e("Replace Class", "html-tag-and-class-replace"); ?></h3>
+         <div class="repeater-box">
+            <div id="class-repeater-container" class="repeater-container">
+               <?php
+               $class_repeater_data = $this->html_tag_replace_info['html_class_replace'] ?? [];
+               if (empty($class_repeater_data)) {
+                     $class_repeater_data[] = ['html_old_class' => '', 'html_new_class' => ''];
+               } else {
+                     $class_repeater_data = $class_repeater_data["repeater_data"];
+               }
+               foreach ($class_repeater_data as $index => $row) {
+               ?>
+                     <div class="repeater-row">
+                        <div class="repeater-field">
+                           <p>
+                                 <label><?php esc_html_e("Old Class", "html-tag-and-class-replace"); ?></label>
+                                 <input type="text" name="repeater_data[<?php echo $index; ?>][html_old_class]" placeholder="class-name" value="<?php echo esc_attr($row['html_old_class']); ?>">
+                           </p>
+                           <p>
+                                 <label><?php esc_html_e("New Class", "html-tag-and-class-replace"); ?></label>
+                                 <input type="text" name="repeater_data[<?php echo $index; ?>][html_new_class]" placeholder="class-name" value="<?php echo esc_attr($row['html_new_class']); ?>">
+                           </p>
+                        </div>
+                        <div class="repeater-controller">
+                           <span class="remove-row"><p>×</p></span>
+                        </div>
+                     </div>
+               <?php } ?>
+            </div>
+            <div class="add-new-row">
+               <button type="button" class="button button-primary" id="add-class-row"><?php esc_html_e("Add Row", "html-tag-and-class-replace"); ?></button>
+            </div>
+         </div>
+         <!-- Class Replace End -->
+         <div class="html-tag-and-class-replace-response">
+
+         </div>
          <?php wp_nonce_field( $this->plugin->name, $this->plugin->name . '_nonce' ); ?>
          <p>
-            <input type='submit' name='but_submit' value='<?php esc_attr_e("Submit","html-tag-and-class-replace"); ?>'>
+            <input type='submit' name='but_submit' value='<?php esc_attr_e("Save Settings","html-tag-and-class-replace"); ?>'>
          </p>
-        <?php } ?>
+
       </form>
    </div>
 </div>
