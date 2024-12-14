@@ -1,10 +1,9 @@
 === HTML Tag and Class Replace ===
 Contributors: jahidcse
-Donate link: https://themefic.com/
 Tags: html code, css class, footer code, html class, h1 replace, a tag replace, insert code, div replace, id replace, tag replace, seo, wp developers
 Requires at least: 4.7
-Tested up to: 6.4
-Stable tag: 1.0.4
+Tested up to: 6.7
+Stable tag: 1.1.0
 Requires PHP: 5.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -13,29 +12,23 @@ Allows you to Replace any HTML Tag and Class of your WordPress WebSite.
 
 == Description ==
 
-HTML Tag and Class Replace is a very simple plugin that lets you to replace your html tag and class. it's a very useful for SEO.
+HTML Tag and Class Replace is a lightweight and user-friendly WordPress plugin designed to let you easily replace HTML tags and classes across your website. Whether you're optimizing for SEO, improving design consistency, or customizing your theme, this plugin simplifies the process with just a few clicks.
 
+<strong>Features:</strong>
 
-A few notes about the sections above:
+* Effortlessly replace any HTML tag for better semantic structure and SEO optimization.
+* Modify or replace HTML classes to enhance your website’s styling and consistency.
+* Perfect for bloggers, developers, and website owners aiming for more control over their site's HTML output.
 
-* Very simple to replace any html tag
-* Replace html Class in your blog
+<strong>Injection Locations:</strong>
 
-= INJECTION LOCATIONS =
-
-1. Head Section
+1. Header Section
 2. Body Section
 3. Footer Section
 
+<strong>Why Choose HTML Tag and Class Replace?</strong>
 
-
-<strong>Privacy Policy : </strong>
-
-HTML Tag and Class Replace uses [Appsero](https://appsero.com) SDK to collect some telemetry data upon user's confirmation. This helps us to troubleshoot problems faster & make product improvements.
-
-Appsero SDK does not gather any data by default. The SDK only starts gathering basic telemetry data when a user allows it via the admin notice. We collect the data to ensure a great user experience for all our users. 
-
-Integrating Appsero SDK DOES NOT IMMEDIATELY start gathering data, without confirmation from users in any case.
+It’s a quick and powerful solution that helps you make critical HTML updates without diving deep into your website’s codebase.
 
 
 == Installation ==
@@ -66,6 +59,27 @@ Yes.
 1. Settings
 
 == Changelog ==
+
+= 1.1.0 =
+
+* Added: Unlimited Tags & Class Replace
+* Improvement: Settings
+
+= 1.0.8 =
+
+* Added: Compatibility with WordPress 6.7
+
+= 1.0.7 =
+
+* Added: Compatibility with WordPress 6.6
+
+= 1.0.6 =
+
+* Removed: Auto Redirect to the Setting Page
+
+= 1.0.5 =
+
+* Added: Compatibility with WordPress 6.5
 
 = 1.0.4 =
 
