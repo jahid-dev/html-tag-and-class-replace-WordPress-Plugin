@@ -37,7 +37,6 @@ class HTMLtagreplace {
     add_action('admin_menu', array($this,'html_tag_replace_admin_add_page'));
     add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), array($this,'html_tag_replace_page_settings'));
     $this->html_tag_and_class_replace_function();
-    $this->appsero_init_tracker_html_tag_and_class_replace();
 
   }
 
@@ -92,22 +91,6 @@ class HTMLtagreplace {
   */
   function html_tag_and_class_replace_function(){
     require_once __DIR__ . '/inc/functions.php';
-  }
-
-  /**
-   * Initialize the plugin tracker
-   *
-   * @return void
-   */
-  function appsero_init_tracker_html_tag_and_class_replace() {
-    if ( ! class_exists( 'Appsero\Client' ) ) {
-      require_once __DIR__ . '/inc/app/src/Client.php';
-    }
-
-    $client = new Appsero\Client( '48566830-079d-44e7-87ae-212216263283', 'HTML Tag and Class Replace', __FILE__ );
-
-    // Active insights
-    $client->insights()->init();
   }
 
 }
