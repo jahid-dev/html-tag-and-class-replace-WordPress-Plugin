@@ -3,7 +3,7 @@ Contributors: jahidcse
 Tags: html code, css class, footer code, html class, h1 replace, a tag replace, insert code, div replace, id replace, tag replace, seo, wp developers
 Requires at least: 4.7
 Tested up to: 6.7
-Stable tag: 1.0.8
+Stable tag: 1.1.0
 Requires PHP: 5.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -65,6 +65,11 @@ Yes.
 1. Settings
 
 == Changelog ==
+
+= 1.1.0 =
+
+* Added: Unlimited Tags & Class Replace
+* Improvement: Settings
 
 = 1.0.8 =
 

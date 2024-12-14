@@ -28,19 +28,16 @@ class HTML_Tag_Replace_Core {
     */
     
     function html_tag_replace_front_custom_scripts(){
-        wp_enqueue_script( 'my_replace_js', HTMLTagReplace_URL.'/assets/js/replace.js', array('jquery'), '', true );
+        wp_enqueue_script( 'my_replace_js', HTMLTagReplace_URL.'/assets/app/js/replace.js', array('jquery'), '', true );
         
-        $jh_html_old_tag = wp_unslash(get_option( 'html_old_tag' ));
-        $jh_html_new_tag = wp_unslash(get_option( 'html_new_tag' ));
-        $jh_html_old_class = wp_unslash(get_option( 'html_old_class' ));
-        $jh_html_new_class = wp_unslash(get_option( 'html_new_class' ));
-        $jh_data_pass = array(
-            'oldtag' => $jh_html_old_tag,
-            'newtag' => $jh_html_new_tag,
-            'oldclass' => $jh_html_old_class,
-            'newclass' => $jh_html_new_class
+        $html_class_replace = get_option( 'html_class_replace' );
+        $html_tag_replace = get_option( 'html_tag_replace' );
+        $html_tag_replace_info = array(
+            'html_class_replace' => !empty($html_class_replace['repeater_data']) ? $html_class_replace['repeater_data'] : [],
+            'html_tag_replace' => !empty($html_tag_replace['repeater_data']) ? $html_tag_replace['repeater_data'] : []
         );
-        wp_localize_script( 'my_replace_js', 'htc_data', $jh_data_pass );
+
+        wp_localize_script( 'my_replace_js', 'htc_data', $html_tag_replace_info );
     }
 
     /**

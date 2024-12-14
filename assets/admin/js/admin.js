@@ -17,7 +17,7 @@ jQuery(document).ready(function ($) {
                         </p>
                     </div>
                     <div class="repeater-controller">
-                        <button type="button" class="button button-primary remove-row">Remove</button>
+                        <span class="remove-row"><p>×</p></span>
                     </div>
                 </div>
             `;
@@ -35,7 +35,7 @@ jQuery(document).ready(function ($) {
                         </p>
                     </div>
                     <div class="repeater-controller">
-                        <button type="button" class="button button-primary remove-row">Remove</button>
+                        <span class="remove-row"><p>×</p></span>
                     </div>
                 </div>
             `;
@@ -66,7 +66,7 @@ jQuery(document).ready(function ($) {
     // Handle form submission
     $('.replace-tag-box form').on('submit', function (e) {
         e.preventDefault();
-
+        $('.html-tag-and-class-submit').addClass('html-tag-and-class-loader');
         // Collect the form data
         const formData = {
             action: 'save_html_replace_data',
@@ -87,13 +87,23 @@ jQuery(document).ready(function ($) {
 
         // Send data via AJAX
         $.post(htmlReplaceAjax.ajax_url, formData, function (response) {
+            const $responseBox = $('.html-tag-and-class-replace-response');
+            $responseBox.html(''); // Clear previous messages
+
             if (response.success) {
-                $('.html-tag-and-class-replace-response').html('');
-                $('.html-tag-and-class-replace-response').html('<div class="updated notice"><p>Settings Saved Successfully!</p></div>')
+                $responseBox.html('<div class="updated notice"><p>Settings Saved Successfully!</p></div>');
             } else {
-                $('.html-tag-and-class-replace-response').html('');
-                $('.html-tag-and-class-replace-response').html('<div class="error notice"><p>Failed to Save Data</p></div>')
+                $responseBox.html('<div class="error notice"><p>Failed to Save Data</p></div>');
             }
+
+            $('.html-tag-and-class-submit').removeClass('html-tag-and-class-loader');
+
+            // Hide the response message after 5 seconds
+            setTimeout(function () {
+                $responseBox.fadeOut(500, function () {
+                    $(this).html('').show(); // Clear the content and reset visibility
+                });
+            }, 5000);
         });
     });
 });

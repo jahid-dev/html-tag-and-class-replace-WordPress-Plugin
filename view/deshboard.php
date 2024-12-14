@@ -1,19 +1,6 @@
 <div class="wrap">
    <h2 class="best-header-title"><?php echo esc_html($this->plugin->displayName); ?> &raquo; <?php esc_html_e( 'Settings','html-tag-and-class-replace'); ?> </h2>
-  <?php
-    if ( isset( $this->message ) ) {
-  ?>
-   <div class="updated fade">
-      <p><?php echo esc_html($this->message); ?></p>
-   </div>
-  <?php
-  }
-  if ( isset( $this->errorMessage ) ) {
-  ?>
-  <div class="error fade"><p><?php echo esc_html($this->errorMessage); ?></p></div>
-  <?php
-  }
-  ?>
+
    <?php
       $hfcm_form_action = admin_url('options-general.php?page=html-tag-and-class-replace');
    ?>
@@ -96,7 +83,9 @@
          </div>
          <?php wp_nonce_field( $this->plugin->name, $this->plugin->name . '_nonce' ); ?>
          <p>
-            <input type='submit' name='but_submit' value='<?php esc_attr_e("Save Settings","html-tag-and-class-replace"); ?>'>
+            <button type='submit' class="html-tag-and-class-submit">
+            <?php esc_attr_e("Save Settings","html-tag-and-class-replace"); ?>
+            </button>
          </p>
 
       </form>
