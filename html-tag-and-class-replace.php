@@ -73,7 +73,6 @@ class HTMLtagreplace {
     }
   }
 
-
   /**
   * Plugin Setting Page Linked
   */
