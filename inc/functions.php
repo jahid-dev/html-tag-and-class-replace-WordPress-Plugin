@@ -98,8 +98,9 @@ class HTML_Tag_Replace_Core {
             }
     
             // Update the new option with repeater data format
-            update_option( 'html_class_replace', ['repeater_data' => $migrate_able_data] );
-    
+            if(!empty($migrate_able_data)){
+                update_option( 'html_class_replace', ['repeater_data' => $migrate_able_data] );
+            }
             // Prepare migration data
             $migrate_able_tag_data = [];
             if ( ! empty( $jh_html_old_tag ) && ! empty( $jh_html_new_tag ) ) {
@@ -113,8 +114,9 @@ class HTML_Tag_Replace_Core {
             }
     
             // Update the new option with repeater data format
-            update_option( 'html_tag_replace', ['repeater_data' => $migrate_able_tag_data] );
-    
+            if(!empty($migrate_able_tag_data)){
+                update_option( 'html_tag_replace', ['repeater_data' => $migrate_able_tag_data] );
+            }
             // Set the migration flag
             update_option( 'html_tag_replace_migration', 1 );
         }

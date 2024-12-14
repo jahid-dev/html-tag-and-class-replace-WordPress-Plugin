@@ -12,7 +12,7 @@
          <div class="repeater-box">
             <div id="tag-repeater-container" class="repeater-container">
                <?php
-               $tag_repeater_data = $this->html_tag_replace_info['html_tag_replace'] ?? [];
+               $tag_repeater_data = !empty($this->html_tag_replace_info['html_tag_replace']) ? $this->html_tag_replace_info['html_tag_replace'] : [];
                if (empty($tag_repeater_data)) {
                      $tag_repeater_data[] = ['html_old_tag' => '', 'html_new_tag' => ''];
                } else {
@@ -48,7 +48,7 @@
          <div class="repeater-box">
             <div id="class-repeater-container" class="repeater-container">
                <?php
-               $class_repeater_data = $this->html_tag_replace_info['html_class_replace'] ?? [];
+               $class_repeater_data = !empty($this->html_tag_replace_info['html_class_replace']) ? $this->html_tag_replace_info['html_class_replace'] : [];
                if (empty($class_repeater_data)) {
                      $class_repeater_data[] = ['html_old_class' => '', 'html_new_class' => ''];
                } else {
